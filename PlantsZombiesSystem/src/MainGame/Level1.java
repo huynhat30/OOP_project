@@ -2,6 +2,7 @@ package MainGame;
 
 
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 import Character.NormalZombies;
 import Character.Sun;
@@ -11,6 +12,8 @@ public class Level1 {
 	public static boolean status = false ; 
 	private WareHouse warehouse ;
 	private long sunTimeBeforeProduce , sunTimeBeforeProduce1  ;
+	public static ArrayList<Sun> sun = new ArrayList<>();
+	private int index;
 	private static long zomTimeProduce = 7000 ;
 	private static long sunTimeProduce = 5000 ;
 
@@ -31,9 +34,17 @@ public class Level1 {
 		warehouse.render(g);						
 		}
 	public void produceSun() {
-		if(System.currentTimeMillis() - sunTimeBeforeProduce > sunTimeProduce) {
-			new Sun();
+		while(System.currentTimeMillis() - sunTimeBeforeProduce > sunTimeProduce) {
+			sun = new ArrayList<Sun>();
+			Sun sunP = new Sun();
+			sun.add(sunP);
 			sunTimeBeforeProduce = System.currentTimeMillis();
+			index ++;
+			if(index > 1) {
+				sun.remove(sunP);
+				index = 0;
+				
+			}
 		}
 	}
 	public void addZom() {

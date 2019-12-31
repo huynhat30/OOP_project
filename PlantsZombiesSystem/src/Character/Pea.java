@@ -17,7 +17,6 @@ public class Pea extends Bullets{
 	protected int dy ;
 	public static int damage = 100 ;
 	private static final int speed =  10 ; 
-	private static int score;
 	public Pea() {}
 	public Pea (int x , int y) {
 		dx = x ; 
@@ -62,16 +61,11 @@ public class Pea extends Bullets{
 				if(norzom.health <= 0) {
 					izom.remove();
 					HighScore_SunPrice.score += 25;
-					System.out.println("\nScore:" + HighScore_SunPrice.score);
-					Pea.score = HighScore_SunPrice.score;
+					HighScore_SunPrice.scoreH = Integer.toString(HighScore_SunPrice.score);
 				}
 				
 			}
 		}
-	}
-	
-	public int getScore() {
-		return Pea.score;
 	}
 
 }

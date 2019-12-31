@@ -2,8 +2,14 @@ package Character;
 
 import java.awt.Graphics;
 import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Iterator;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import Graphics.Animation;
 import Graphics.ImgAssetAndCrop;
@@ -31,12 +37,34 @@ public class NormalZombies extends Zombies {
 	@Override
 	public void move() {
 		dX -= speed ;
-		//while(dX < 0){
-			//JOptionPane.showMessageDialog(null, "game over");
-			//Board board = new Board();
-			//board.start();
-			//break;
-		//}
+		if(dX < 250){
+			JFrame frame = new JFrame();
+	    	JButton button = new JButton("Close");
+	        JPanel panel = new JPanel();
+	        JLabel label = new JLabel("Game Over");
+	        
+	        label.setFont (label.getFont ().deriveFont (16.0f));
+	        label.setBounds(30, -6, 1000, 60);
+	        
+	        button.setBounds(130, 50, 80, 30);
+	        button.addActionListener(new ActionListener() {
+	            public void actionPerformed(ActionEvent e) {
+	            	System.exit(0);
+	            }
+	        });
+	        
+	        panel.setLayout(null);
+	        panel.add(button);
+	        panel.add(label);
+	        
+	               
+	        frame.add(panel);
+	        frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+	        frame.setSize(350, 150);
+	        frame.setLocationRelativeTo(null);
+	        frame.setVisible(true);
+			
+		}
 	}
 	@Override
 	public void update() {
@@ -63,7 +91,6 @@ public class NormalZombies extends Zombies {
 			if(peaShooter.getRectangle().intersects(this.getRectangle())) {
 				speed = 0 ; 
 				peaShooter.health -= damage ;
-				System.out.print("\nHealth Tree :" + peaShooter.health);
 					if(peaShooter.health <= 0) {
 						itree.remove();
 						speed = getSpeedd() ;
@@ -91,16 +118,15 @@ public class NormalZombies extends Zombies {
 					iboom.remove();
 					WareHouse.zom1.remove(this);
 					HighScore_SunPrice.score += 25 ;
+					HighScore_SunPrice.scoreH = Integer.toString(HighScore_SunPrice.score);
 			}
 		}
-		//Zombies vs IceTree 
 		for(Iterator<IcePeaShooter>  icetree = WareHouse.icetree.iterator() ;
 				icetree.hasNext();) {
 			IcePeaShooter ICetree = icetree.next();
 			if(ICetree.getRectangle().intersects(this.getRectangle())) {
 				speed = 0 ; 
 				ICetree.health -= damage ;
-				System.out.print("\nHealth Tree :" + ICetree.health);
 					if(ICetree.health <= 0) {
 						icetree.remove();
 						speed = getSpeedd() ;

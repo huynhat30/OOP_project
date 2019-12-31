@@ -3,7 +3,7 @@ package MainGame;
 import java.awt.Graphics;
 
 public class HighScore_SunPrice {
-	public static int price = 1000;
+	public static int price = 50;
 	public static int score = 0 ;
 	public static String sunPrice ;
 	public static String scoreH ;
@@ -14,7 +14,7 @@ public class HighScore_SunPrice {
 
 	public void render(Graphics g) {
 		g.drawString(sunPrice, 120 , 150);
-		g.drawString(scoreH, 120 , 90);
+		g.drawString("Score: "+scoreH, 100 , 185);
 	}
 	
 }

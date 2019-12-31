@@ -14,6 +14,7 @@ public class ImgAssetAndCrop {
 		
 		
 		SpriteSheet sheet = new SpriteSheet(StoreImages.loadImages("/Store/Full7.png"));
+		SpriteSheet sheet1 = new SpriteSheet(StoreImages.loadImages("/Store/White_thumb.png"));
 		
 		normalZomImg = new BufferedImage[5];
 		normalZomImg[0] = sheet.crop(15, 110, width, height);
@@ -52,13 +53,14 @@ public class ImgAssetAndCrop {
 		boom[0] = sheet.crop(525, 45, width, height - 40);
 		boom[1] = sheet.crop(618, 45, width, height - 40);
 		
-		cards =  new BufferedImage[6];
+		cards =  new BufferedImage[7];
 		cards[0] = sheet.crop(13 , 610, width , height );
 		cards[1] = sheet.crop(115, 610, width, height );
 		cards[2] = sheet.crop(217, 610, width, height );
 		cards[3] = sheet.crop(319, 610, width, height );
 		cards[4] = sheet.crop(415, 610, width, height );
 		cards[5] = sheet.crop(180,   3, width + 15, height) ; 
+		cards[6] = sheet1.crop(5, 10, width + 15, 20);
 		
 		remover =  new BufferedImage[1];
 		remover[0] = sheet.crop(530, 640, width - 20, height - 30);

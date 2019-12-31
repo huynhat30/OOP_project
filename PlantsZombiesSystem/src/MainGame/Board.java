@@ -1,7 +1,7 @@
 package MainGame;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
-import Character.Items;
+import Character.CardsAndOther;
 import ControlCenter.MouseControl;
 import Graphics.ImgAssetAndCrop;
 public class Board implements Runnable {
@@ -12,13 +12,13 @@ public class Board implements Runnable {
 	private Graphics g ; // pen
 	private Level1 level1 ; 
 	private MouseControl mouse ;
-	private Items items ;
+	private CardsAndOther cardsAndOther ;
 	private HighScore_SunPrice highScore_SunPrice;
 
 	public void Init() {
 		backgroundDisplay = new BackgroundDisplay();
 		ImgAssetAndCrop.RunImages();
-		items = new Items() ;
+		cardsAndOther = new CardsAndOther() ;
 		mouse = new MouseControl(); 
 		backgroundDisplay.getJFrame().addMouseListener(mouse);
 		level1 = new Level1();
@@ -44,7 +44,7 @@ public class Board implements Runnable {
 		 g.drawImage(ImgAssetAndCrop.getBackground(),0,0,backgroundDisplay.getWidth(),backgroundDisplay.getHeight(),null);
 		 
 		 
-		 items.render(g);
+		 cardsAndOther.render(g);
 		 highScore_SunPrice.render(g);
 		 level1.render(g);
 

@@ -7,7 +7,7 @@ import MainGame.ScreenSize;
 
 public abstract class Zombies {	
 	protected int dX; 
-	protected int dY ;
+	protected int dY;
 	protected int width  = 75 ;
 	protected int height = 90 ;	
 	protected int damage ; 
@@ -19,7 +19,7 @@ public abstract class Zombies {
 		dX = new ScreenSize().getYardWidth() ; 
 		dY = y - y%100 + 55 ; 
 	}
-	public double getdX() {
+	public int getdX() {
 		return dX ; 
 	}
 	public int getdY() {

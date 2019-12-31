@@ -60,6 +60,7 @@ public class IcePea extends Bullets {
 				if(norzom.health <= 0) {
 					izom.remove();
 					HighScore_SunPrice.score += 25 ;
+					HighScore_SunPrice.scoreH = Integer.toString(HighScore_SunPrice.score);
 				}
 				
 			}
