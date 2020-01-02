@@ -15,8 +15,8 @@ public class BackgroundDisplay {
 	
 	public BackgroundDisplay() {	
 		sz = new ScreenSize();
-		width=sz.getScrWidth()*72/100;
-		height =sz.getScrHeight()*57/100;
+		width=sz.getGameScrWidth();
+		height =sz.getGameScrHeight();
 		frame = new JFrame("Plants vs Zombies");
 		frame.setSize(width	,height);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -8,8 +8,8 @@ public class Board implements Runnable {
 	private BackgroundDisplay backgroundDisplay ;
 	private Thread thread ;
 	private Boolean running = false ;
-	private BufferStrategy bs ; // Hidden Screen  
-	private Graphics g ; // pen
+	private BufferStrategy bs ; 
+	private Graphics g ;
 	private Level1 level1 ; 
 	private MouseControl mouse ;
 	private CardsAndOther cardsAndOther ;
@@ -26,14 +26,13 @@ public class Board implements Runnable {
 }
 	public void Update() 
 	{
-		
 		level1.update();
 	}
 	
 	public void Render() {
 		bs = backgroundDisplay.getCanvas().getBufferStrategy();
 		if (bs == null) {
-			backgroundDisplay.getCanvas().createBufferStrategy(5); // Create 3 hidden screen
+			backgroundDisplay.getCanvas().createBufferStrategy(5);
 			return ;
 		}
 		 g = bs.getDrawGraphics();
@@ -78,16 +77,12 @@ public class Board implements Runnable {
 		stop();
 	}
 	public synchronized void start() {
-		if(running) {
-			return ;}
 		running = true ;
 		thread = new Thread(this);
 		thread.start();
 		
 	}
 	public synchronized void stop() {
-		if(!running)
-			return ; 
 		running  = false ;
 		 try {
 			thread.join();

@@ -23,7 +23,15 @@ public class ScreenSize {
 	public int getYardHeight() {
 		return getScrHeight();
 	}
-
-
+    
 	
+	public int getGameScrWidth() {
+		return screenSize.width*72/100;
+	}
+
+	public int getGameScrHeight() {
+		return screenSize.height*57/100;
+	}
+    
+	 
 }

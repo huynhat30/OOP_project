@@ -17,14 +17,14 @@ import MainGame.HighScore_SunPrice;
 
 public class MouseControl implements MouseListener , MouseMotionListener { 
 	public int x , xRelease , y , yRelease ,  xClicked, yClicked; 
-	ScreenSize sz = new ScreenSize();
+	public static ScreenSize sz =  new ScreenSize();
 	private static int id = 0 ;
 	private static int squareWidth  = 100;  
 	private static int squareHeight = 100;
-	private static int yardWidthInitial = 350; 
-	private static int yardWidthFinal   = 1200; 
-	private static int yardHeightInitial = 70;
-	private static int yardHeightFinal   = 570; 
+	private static int yardWidthInitial = sz.getGameScrWidth() - 1040; 
+	private static int yardWidthFinal   = sz.getGameScrWidth() - 35; 
+	private static int yardHeightInitial = sz.getGameScrHeight()- 545;
+	private static int yardHeightFinal   = sz.getGameScrHeight()- 45; 
 	public static int plant_HorizonRange ;
 	public static int plant_VerticalRange ;
 	@Override

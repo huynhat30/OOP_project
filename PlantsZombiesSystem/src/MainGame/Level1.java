@@ -13,7 +13,6 @@ public class Level1 {
 	private WareHouse warehouse ;
 	private long sunTimeBeforeProduce , sunTimeBeforeProduce1  ;
 	public static ArrayList<Sun> sun = new ArrayList<>();
-	private int index;
 	private static long zomTimeProduce = 7000 ;
 	private static long sunTimeProduce = 5000 ;
 
@@ -39,12 +38,6 @@ public class Level1 {
 			Sun sunP = new Sun();
 			sun.add(sunP);
 			sunTimeBeforeProduce = System.currentTimeMillis();
-			index ++;
-			if(index > 1) {
-				sun.remove(sunP);
-				index = 0;
-				
-			}
 		}
 	}
 	public void addZom() {

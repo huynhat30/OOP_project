@@ -38,6 +38,7 @@ public class NormalZombies extends Zombies {
 	public void move() {
 		dX -= speed ;
 		if(dX < 250){
+			speed = 0;
 			JFrame frame = new JFrame();
 	    	JButton button = new JButton("Close");
 	        JPanel panel = new JPanel();
@@ -49,6 +50,7 @@ public class NormalZombies extends Zombies {
 	        button.setBounds(130, 50, 80, 30);
 	        button.addActionListener(new ActionListener() {
 	            public void actionPerformed(ActionEvent e) {
+	            	
 	            	System.exit(0);
 	            }
 	        });
